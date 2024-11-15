@@ -44,7 +44,7 @@ def update_user(id):
         
         user = User.query.get(id)
         if user is None:
-            return jsonify({'msg':'User not Found'}), 404
+            return jsonify({'msg':'User not Found'})
         
         data = request.json
 
@@ -54,6 +54,24 @@ def update_user(id):
         db.session.commit()
         return jsonify(user.convert_to_json()), 200
 
+
+    except Exception as e:
+
+        db.session.rollback()
+        return jsonify({'msg':str(e)}), 500
+    
+@app.route('/api/<int:id>', methods=['DELETE'])
+def delete_user(id):
+    try:
+
+        user = User.query.get(id)
+        if user is None:
+            return jsonify({'msg':'User not Found'})
+        
+        db.session.delete(user)
+        db.session.commit()
+
+        return jsonify({'msg':'User Deleted'})
 
     except Exception as e:
 
