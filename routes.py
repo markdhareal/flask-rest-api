@@ -36,3 +36,26 @@ def create_user():
 
         db.session.rollback()
         return jsonify({'msg':str(e)}), 400
+    
+# UPDATE USER 
+@app.route('/api/<int:id>', methods=['PATCH'])
+def update_user(id):
+    try:
+        
+        user = User.query.get(id)
+        if user is None:
+            return jsonify({'msg':'User not Found'}), 404
+        
+        data = request.json
+
+        user.name = data.get('name', user.name)
+        user.email = data.get('email', user.email)
+
+        db.session.commit()
+        return jsonify(user.convert_to_json()), 200
+
+
+    except Exception as e:
+
+        db.session.rollback()
+        return jsonify({'msg':str(e)}), 500
