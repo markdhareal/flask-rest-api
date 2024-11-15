@@ -1,0 +1,63 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Distribution/Packaging
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Instance-specific files (often sensitive or environment-specific)
+instance/
+*.env
+*.env.*
+*.local
+*.sqlite3
+
+# Configuration or sensitive files that are generated per instance
+config.cfg
+settings.ini
+local_config.json
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*~
+*.sublime-workspace
+*.sublime-project
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# PyInstaller
+*.spec
+
+# Test / Coverage reports
+.coverage
+*.cover
+*.hypothesis/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.coveragerc
+
+# MyPy
+.mypy_cache/
+
+# Pycharm
+.idea/
+
+# VS Code
+.vscode/
